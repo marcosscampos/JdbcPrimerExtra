@@ -9,6 +9,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/* OBS: deixei o ex.printStackTrace() comentado caso queira ver o erro completo.
+Só "descomentar" para poder visualizar o erro.
+Apesar do sistema estar redondinho, é sempre bom se precaver.*/
+
 public class ContatoDAO {
 
     public void inserir(Contato contato) {
@@ -27,8 +31,8 @@ public class ContatoDAO {
             ps.close();
 
         } catch (Exception ex) {
-            ex.printStackTrace();
             System.out.println("ERRO: Não foi possível cadastrar um contato.");
+            //ex.printStackTrace();
         }
     }
 
@@ -56,8 +60,8 @@ public class ContatoDAO {
 
             }
         } catch (Exception e) {
-            //e.printStackTrace(); - Pra caso queira debugar vendo o erro completo.
             System.out.println("Não foi possível listar os contatos.");
+            //e.printStackTrace();
         }
 
         return retorno;
@@ -95,8 +99,8 @@ public class ContatoDAO {
 
             System.out.println("Contato: " + contato.getName());
         } catch (Exception ex) {
-            ex.printStackTrace();
-            //System.out.println("Não foi possível alterar os dados do contato.");
+            System.out.println("Não foi possível alterar os dados do contato.");
+            //ex.printStackTrace();
         }
     }
 
@@ -119,8 +123,8 @@ public class ContatoDAO {
             statement.close();
 
         } catch (Exception ex) {
-            //ex.printStackTrace();
             System.out.println("Não foi possível obter as informações do contato.");
+            //ex.printStackTrace();
         }
         return contato;
     }
