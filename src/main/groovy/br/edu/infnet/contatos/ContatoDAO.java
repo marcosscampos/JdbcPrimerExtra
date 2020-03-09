@@ -28,6 +28,7 @@ public class ContatoDAO {
 
         } catch (Exception ex) {
             ex.printStackTrace();
+            System.out.println("ERRO: Não foi possível cadastrar um contato.");
         }
     }
 
@@ -66,8 +67,7 @@ public class ContatoDAO {
 
         try (Connection con = FabricaDeConexoes.conectar()) {
 
-            String sql = "DELETE FROM contacts" +
-                    " WHERE id = ?";
+            String sql = "DELETE FROM contacts WHERE id = ?";
 
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, contato.getId());
@@ -83,21 +83,20 @@ public class ContatoDAO {
     public void alterar(Contato contato) {
         try (Connection con = FabricaDeConexoes.conectar()) {
 
-            String sql = "UPDATE contacts" +
-                    " SET name = ?, email = ?, fone = ? " +
-                    "WHERE id = ?";
+            String sql = "UPDATE contacts SET name = ?, email = ?, fone = ? WHERE id = ?";
 
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, contato.getName());
             ps.setString(2, contato.getEmail());
             ps.setString(3, contato.getFone());
+            ps.setInt(4, contato.getId());
             ps.executeUpdate();
             ps.close();
 
             System.out.println("Contato: " + contato.getName());
         } catch (Exception ex) {
-            //ex.printStackTrace();
-            System.out.println("Não foi possível alterar os dados do contato.");
+            ex.printStackTrace();
+            //System.out.println("Não foi possível alterar os dados do contato.");
         }
     }
 
