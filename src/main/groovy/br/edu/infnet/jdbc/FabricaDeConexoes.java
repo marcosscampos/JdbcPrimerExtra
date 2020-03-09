@@ -39,8 +39,4 @@ public class FabricaDeConexoes {
 
         return retorno;
     }
-
-    public static void main(String[] args) {
-        FabricaDeConexoes.conectar();
-    }
 }
