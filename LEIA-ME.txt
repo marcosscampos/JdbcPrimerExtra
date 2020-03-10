@@ -1,7 +1,0 @@
-Como o schema tá um pouco diferente do que o senhor criou com a gente lá, eu fiz o favor de exportar meu BD já com as informações e tabelas e afins.
-Só ir no MySQL > Server > Data Import e lá faz a importação desse arquivo SQL com tudo certinho. Acredito que vai precisar somente trocar o usuário e senha
-que no seu computador deve ser diferente.
-Depois só testar e qualquer erro eu fico a disposição pra eu poder melhorar e entregar algo melhor. O próximo passo é transformar essa aplicação em console em uma aplicação
-gráfica!
-
-Um abraço.
